@@ -3,6 +3,9 @@ const Puppy =require('../../models/puppy');
 module.exports = {
     index,
     create,
+    show,
+    update,
+    deleteOne
 
 };
 
@@ -29,3 +32,21 @@ function create(req, res) {
 //         .then(puppy => res.json(puppy))
 //         .catch(err => res.status(500).json(err))
 // }
+
+function show(req, res) {
+    Puppy.findById(req.params.id)
+    .then (puppy => res.json(puppy))
+    .catch(err => res.status(500).json(err))
+}
+
+function update(req, res) {
+    Puppy.findByIdAndUpdate(req.params.id, req.body, {new: true})
+    .then (puppy => res.json(puppy))
+    .catch(err => res.status(500).json(err))
+}
+
+function deleteOne(req, res) {
+    Puppy.findByIdAndDelete(req.params.id)
+    .then (puppy => res.json(puppy))
+    .catch(err => res.status(500).json(err))
+}
