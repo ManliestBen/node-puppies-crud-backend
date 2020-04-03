@@ -12,7 +12,7 @@ const puppySchema = new Schema({
     },
     age: {
         type: Number,
-        default: 1
+        default: 0
     }
 }, { timestamps: true }
 );
