@@ -39,14 +39,33 @@ function show(req, res) {
     .catch(err => res.status(500).json(err))
 }
 
+// async function show(req, res) {
+//     const puppy = await Puppy.findById(req.params.id)
+//     .then (puppy => res.json(puppy))
+//     .catch(err => res.status(500).json(err))
+// }
+
 function update(req, res) {
     Puppy.findByIdAndUpdate(req.params.id, req.body, {new: true})
     .then (puppy => res.json(puppy))
     .catch(err => res.status(500).json(err))
 }
 
+// async function update(req, res) {
+//     const puppy = await Puppy.findByIdAndUpdate(req.params.id, req.body, {new: true})
+//     .then (puppy => res.json(puppy))
+//     .catch(err => res.status(500).json(err))
+// }
+
 function deleteOne(req, res) {
     Puppy.findByIdAndDelete(req.params.id)
     .then (puppy => res.json(puppy))
     .catch(err => res.status(500).json(err))
 }
+
+// async function deleteOne(req, res) {
+//     const puppy = await Puppy.findByIdAndDelete(req.params.id)
+//     .then (puppy => res.json(puppy))
+//     .catch(err => res.status(500).json(err))
+// }
+
